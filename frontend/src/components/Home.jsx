@@ -36,9 +36,7 @@ const Home = ({ allProjects }) => {
 
   const markTo = (x) => {
     document.querySelector(".mark").className = `mark ${x}`;
-    // document.querySelector('.mark').classList.add = 'hi';
-    console.log(x);
-    console.log("hi");
+  
   };
 
   const [projectToShow, setProjectToShow] = useState(null);
@@ -300,7 +298,7 @@ const Home = ({ allProjects }) => {
               >
                 <img
                   className="img-fluid"
-                  src={`http://192.168.155.251:3000/${project.imageUrl}`}
+                  src={`https://portfolio-2fp9.onrender.com/${project.imageUrl}`}
                   alt=""
                   loading="lazy"
                 />
