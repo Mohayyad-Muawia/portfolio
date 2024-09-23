@@ -16,7 +16,7 @@ const ProjectForm = ({ setAllProjects }) => {
 
   const refreshProjects = async () => {
     try {
-      const response = await fetch("http://localhost:3000/projects");
+      const response = await fetch("https://portfolio-2fp9.onrender.com/projects");
       const data = await response.json(); // Parse the JSON data from the response
       setAllProjects(data); // This will trigger a rerender
       console.log(data); // Check the fetched data
@@ -75,7 +75,7 @@ const ProjectForm = ({ setAllProjects }) => {
     data.append("image", image);
 
     try {
-      const response = await fetch("http://localhost:3000/add", {
+      const response = await fetch("https://portfolio-2fp9.onrender.com/add", {
         method: "POST",
         body: data,
       });
