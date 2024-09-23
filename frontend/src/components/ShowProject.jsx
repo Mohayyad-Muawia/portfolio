@@ -22,7 +22,7 @@ const ShowProject = ({ project, setProject, loading, setLoading }) => {
         <div className="project-info">
           <img
             className="img-fluid"
-            src={`http://192.168.155.251:3000/${project.imageUrl}`}
+            src={`https://portfolio-2fp9.onrender.com/${project.imageUrl}`}
             alt=""
             onLoad={handleImageLoad}
           />
