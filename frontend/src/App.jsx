@@ -10,7 +10,7 @@ import Footer from "./components/Footer";
 function App() {
   const [allProjects, setAllProjects] = useState([]); // Initialize state with an empty array
   const { data, loading, error } = useFetch(
-    /* "http://localhost:3000/projects" */ "https://portfolio-backend-mu-nine.vercel.app/projects"
+    /* "http://localhost:3000/projects" */ "https://portfolio-2fp9.onrender.com/projects"
   ); // Use the custom hook
 
   useEffect(() => {
