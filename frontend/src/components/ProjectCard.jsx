@@ -6,7 +6,7 @@ const ProjectCard = (props) => {
         <h1>{ props.title }</h1>
         <p>{ props.description }</p>
         <a href={ props.url }></a>
-        <img src={`http://localhost:3000/${ props.img }`} alt="" />
+        <img src={`https://portfolio-2fp9.onrender.com/${ props.img }`} alt="" />
         </>
      );
 }
