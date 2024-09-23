@@ -47,7 +47,7 @@ const ContactForm = () => {
     });
 
     try {
-      const response = await fetch("http://localhost:3000/projects/contact", {
+      const response = await fetch("https://portfolio-2fp9.onrender.com/projects/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
