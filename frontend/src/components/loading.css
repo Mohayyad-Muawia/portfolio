@@ -1,0 +1,25 @@
+.loading{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #232325;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 200;
+  
+    .load{
+      position: absolute;
+      height: 260px;
+      width: 260px;
+      border-radius: 50%;
+      border: 10px solid transparent;
+      border-top: 10px solid var(--main);
+      border-bottom: 10px solid var(--main);
+      animation: loading 1s ease-in-out forwards infinite;
+    }
+  }
+  
+  
