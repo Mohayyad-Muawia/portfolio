@@ -10,7 +10,7 @@ const LoginForm = ({ correct, setCorrect }) => {
     setError(null);
     document.querySelector(".password").classList.remove("wrong");
 
-    const response = await fetch("http://192.168.155.251:3000/projects/sign", {
+    const response = await fetch("https://portfolio-2fp9.onrender.com/projects/sign", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
