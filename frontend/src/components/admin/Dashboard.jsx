@@ -9,7 +9,7 @@ const Dashboard = () => {
   const [projectToShow, setProjectToShow] = useState(null);
 
   const { data, loading, error } = useFetch(
-    "http://192.168.155.251:3000/projects"
+    "https://portfolio-2fp9.onrender.com/projects"
   ); // Use the custom hook
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const Dashboard = () => {
     document.querySelector(".layout").classList.add("active");
   };
   const deleteProject = async (id) => {
-    const response = await fetch(`http://192.168.155.251:3000/${id}`, {
+    const response = await fetch(`https://portfolio-2fp9.onrender.com/${id}`, {
       method: "DELETE",
     });
     if (response.ok) {
@@ -68,7 +68,7 @@ const Dashboard = () => {
                 </div>
                 <img
                   className="img-fluid"
-                  src={`http://localhost:3000/${project.imageUrl}`}
+                  src={`https://portfolio-2fp9.onrender.com/${project.imageUrl}`}
                   alt="project"
                 />
               </div>
