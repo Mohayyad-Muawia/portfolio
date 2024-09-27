@@ -10,37 +10,33 @@ const projectsRoutes = require('./routes/projectsRoutes');
 const { add_project } = require('./controllers/projectsController');
 
 const morgan = require('morgan');
-const multer = require('multer');
 const cors = require('cors');
-const path = require('path');
 const compression = require('compression');
 
 // CORS configuration
 app.use(cors());
 app.use(compression());
 
-const storage = multer.diskStorage({
-    destination: 'imgs',
-    filename: (req, file, cb) => {
-        cb(null, file.fieldname + "_" + Date.now() + path.extname(file.originalname));
-    }
-});
 
-const fileFilter = (req, file, cb) => {
-    const allowedTypes = /jpeg|jpg|png|gif/;
-    const mimeType = allowedTypes.test(file.mimetype);
-    const extName = allowedTypes.test(path.extname(file.originalname).toLowerCase());
+// firebase and multer
+const multer = require('multer');
+const path = require('path');
 
-    if (mimeType && extName) {
-        return cb(null, true);
-    }
-    cb(new Error('Only images are allowed'));
-};
-
-const upload = multer({
+const storage = multer.memoryStorage(); // Store the file in memory instead of the filesystem
+const upload = multer({ 
     storage: storage,
-    fileFilter: fileFilter
+    fileFilter: (req, file, cb) => {
+        const allowedTypes = /jpeg|jpg|png|gif/;
+        const mimeType = allowedTypes.test(file.mimetype);
+        const extName = allowedTypes.test(path.extname(file.originalname).toLowerCase());
+
+        if (mimeType && extName) {
+            return cb(null, true);
+        }
+        cb(new Error('Only images are allowed'));
+    }
 });
+
 
 app.post('/add', upload.single('image'), add_project);
 
