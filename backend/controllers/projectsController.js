@@ -5,19 +5,20 @@ const admin = require('firebase-admin');
 require('dotenv').config()
 const password = process.env.PASS
 
+
+//firebase
+admin.initializeApp({
+  credential: admin.credential.cert({
+      projectId: process.env.FIREBASE_PROJECT_ID,
+      privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'), // Replace escaped newlines
+      clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+  }),
+  storageBucket: 'gs://portfolio-4bba7.appspot.com'   //process.env.FIREBASE_BUCKET_NAME // Set your bucket name here
+});
+const bucket = admin.storage().bucket();
+
+
 const add_project = async (req, res) => {
-
-    admin.initializeApp({
-        credential: admin.credential.cert({
-            projectId: process.env.FIREBASE_PROJECT_ID,
-            privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'), // Replace escaped newlines
-            clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
-        }),
-        storageBucket: 'gs://portfolio-4bba7.appspot.com'   //process.env.FIREBASE_BUCKET_NAME // Set your bucket name here
-    });
-
-    const bucket = admin.storage().bucket();
-
 
     try {
       const { title, description, url, technologies, type } = req.body;
